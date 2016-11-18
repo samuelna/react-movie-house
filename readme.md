@@ -58,7 +58,6 @@ This is based on the flow of exercises from the last two days! Work through thos
  * Environment!
  * Middleware functions to interact with the database!
 * Create the React front-end fourth! What's the front-end look like? What are you fronting? Draw a front-end if necessary.
- * Webpack! (just take it from the activity)
  * File structure!
  * PLAN!!!!
  * Create components based on your plan!
