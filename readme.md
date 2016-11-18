@@ -10,9 +10,8 @@ After a rough morning, Gerard cleared his head and thought back on all the posit
 
 ## Setup
 
-Treat this like a mini-project - you have no provided files. 
+Treat this like a mini-project - you have no provided files. For reference, [here is](https://git.generalassemb.ly/wdi-nyc-60/react-omdb-search-solution) the solution to the last omdb lab we did.  Even though we've done a React app with the same api, I would not recommend building off of it.  I'd start a brand new app because this is substantially different.  However, I would recommend looking much more closely at [this solution](https://github.com/jasonseminara/react_to-do/tree/solution2016) for the React To-Do list, as it has much more in common you'll be building this weekend.
 
-Gerard is providing you with features he wants to see though. Based on these features, you should feel free to take code from the To-Do App and edit it as necessary to fit the new requirements.
 
 ## Completion
 
@@ -20,8 +19,6 @@ There are 6 parts:
 
 * Wireframe of the Single Page App, with highlighting of React components and data flow
 * Each feature (5 total)
-
-This homework is due **Monday night**. There will be another homework assigned at the end of Monday's class, so the only work being done on this assignment Monday should be to finish final tweaks / error resolutions after another day of instruction / TA time. Regardless, create a pull request Sunday night with the progress of the homework. 
 
 In your homework folder, create a folder for hw media. Your wireframe should be in this folder. Because the apps are becoming more complex and partially based on SECRETS (e.g. environmental variables), it's difficult for us to fully test your app. Let's use quickTime Player to create a short screen cast of your app in action!
 
