@@ -10,7 +10,7 @@ After a rough morning, Gerard cleared his head and thought back on all the posit
 
 ## Setup
 
-Treat this like a mini-project - you have no provided files. For reference, [here is](https://git.generalassemb.ly/wdi-nyc-60/react-omdb-search-solution) the solution to the last omdb lab we did.  Even though we've done a React app with the same api, I would not recommend building off of this lab because it is substantially different.  However, I would recommend looking at it as a reference.  Additionally, check out [the solution](https://github.com/jasonseminara/react_to-do/tree/solution2016) for the React To-Do list, as it has much more in common you'll be building this weekend.
+Treat this like a mini-project - you have no provided files. For reference, [here is](https://git.generalassemb.ly/wdi-nyc-60/react-omdb-search-solution) the solution to the last omdb lab we did.  Even though we've done a React app with the same api, I would not recommend building off of this lab because it is substantially different.  However, I would recommend looking at it as a reference.  Additionally, check out [the solution](https://github.com/jasonseminara/react_to-do/tree/solution2016) for the React To-Do list, as it has much more in common with what you'll be building this weekend.
 
 
 ## Completion
