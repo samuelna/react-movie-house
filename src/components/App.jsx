@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './normalize.css';
 import style from './App.css';
 import MovieContainer from './MovieContainer/MovieContainer.jsx';
+import SearchForm from './SearchForm/SearchForm.jsx';
 
 // create a React Component called _App_
 class App extends Component {
@@ -17,6 +18,7 @@ class App extends Component {
     };
   }
 
+  // get all movies that's stored in the database and set returned array to state
   getAllMovies() {
     fetch('/api/movies')
     .then(r => r.json())
@@ -28,14 +30,20 @@ class App extends Component {
     })
     .catch(err => console.log('getAllMovies frontend', err))
   }
-
+  // calls external api => omdbapi.com
+  // search using titleInput and save title and poster information to state
   searchOmdb() {
-    fetch()
-    .then()
-    .then()
-    .then()
+    fetch(`http://www.omdbapi.com/?${this.state.titleInput}`)
+    .then(r => r.json())
+    .then(movie => {
+      this.setState({
+        omdbTitle   : movie.Title,
+        omdbPoster  : movie.Poster,
+      });
+    })
+    .catch(err => console.log('searchOmdb frontend', err));
   }
-
+  
   render(){
     return (
       <div id="app-container">
@@ -44,13 +52,15 @@ class App extends Component {
           <h2>Showing Now</h2>
         </header>
 
+        <SearchForm />
+
         <MovieContainer 
           getAllMovies={this.getAllMovies.bind(this)}
           showing={this.state.allMovies} 
         />
 
         <footer>
-          <p>Aint nobody got time for copyright</p>
+          <p>Ain't nobody got time for copyright</p>
         </footer>
       </div>
     );
