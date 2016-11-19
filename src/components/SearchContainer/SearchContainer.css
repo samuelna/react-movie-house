@@ -1,0 +1,9 @@
+#search-container {
+  /*margin-top: 50px;*/
+  align-content: space-around;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 900px;
+  width: 70%;
+}

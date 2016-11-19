@@ -1,0 +1,18 @@
+h3 {
+  text-decoration: underline;
+  max-width: 200px;
+}
+
+img {
+  width: 170px;
+  height: 250px;
+}
+
+.movie-list-item {
+  background-color: #EBAE00;
+  box-shadow: 3px 2px 3px #222;
+  margin: 10px;
+  text-align: center;
+  width: 200px;
+  height: 420px;
+}
