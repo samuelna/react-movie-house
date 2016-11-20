@@ -1,17 +1,28 @@
 import React, { Component } from 'react';
-import style from './SearchContainer/SearchContainer.css';
-import Movie from './Movie/Movie.jsx';
+import Movie from '../Movie/Movie.jsx';
+import style from './SearchContainer.css';
 
 export default class SearchContainer extends Component {
+
+  // if omdb is searched then render the searched movie
+  checkInputTitle() {
+    // console.log('checkInputTitle', this.props);
+    if (this.props.searched) {
+      return (
+        <div className={style["movie"]}>
+          <h3>{this.props.title}</h3>
+          <img src={this.props.poster} alt="Movie Poster"/>
+        </div>
+      )
+    } else {
+      return (<div className={style["movie"]}></div>) 
+    }
+  }
+
   render() {
     return(
-      <div id={style=["search-container"]}>
-        <Movie 
-          title={this.props.title}
-          poster={this.props.poster}
-          imdbrating={this.props.imdbrating}
-          runtime={this.props.runtime}
-        />
+      <div id={style["search-container"]}>
+        {this.checkInputTitle()}
       </div>
     )
   }

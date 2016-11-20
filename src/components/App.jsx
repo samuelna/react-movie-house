@@ -4,6 +4,7 @@ import './normalize.css';
 import style from './App.css';
 import MovieContainer from './MovieContainer/MovieContainer.jsx';
 import SearchForm from './SearchForm/SearchForm.jsx';
+import SearchContainer from './SearchContainer/SearchContainer.jsx';
 
 // create a React Component called _App_
 class App extends Component {
@@ -15,6 +16,7 @@ class App extends Component {
       titleInput  : '',
       omdbTitle   : '',
       omdbPoster  : '',
+      searched    : false,
     };
   }
 
@@ -33,15 +35,30 @@ class App extends Component {
   // calls external api => omdbapi.com
   // search using titleInput and save title and poster information to state
   searchOmdb() {
-    fetch(`http://www.omdbapi.com/?${this.state.titleInput}`)
+    this.setState({
+      searched : true,
+    })
+
+    fetch(`http://www.omdbapi.com/?t=${this.state.titleInput}`)
     .then(r => r.json())
     .then(movie => {
+      console.log('in fetch movie', movie)
       this.setState({
         omdbTitle   : movie.Title,
         omdbPoster  : movie.Poster,
       });
+      console.log('in fetch states', this.state)
     })
     .catch(err => console.log('searchOmdb frontend', err));
+
+    // console.log('in searchOmdb', this.state)
+  }
+  // update input 
+  handleInput(e) {
+    // console.log('handleInput', e.target.value);
+    this.setState({
+      titleInput : e.target.value,
+    });
   }
   
   render(){
@@ -52,12 +69,24 @@ class App extends Component {
           <h2>Showing Now</h2>
         </header>
 
-        <SearchForm />
-
-        <MovieContainer 
-          getAllMovies={this.getAllMovies.bind(this)}
-          showing={this.state.allMovies} 
+        <SearchForm
+          handleInput={event => this.handleInput(event)} 
+          handleClick={() => this.searchOmdb()}
         />
+        <div>
+          <MovieContainer 
+            getAllMovies={this.getAllMovies.bind(this)}
+            showing={this.state.allMovies} 
+          />
+        </div>
+
+        <div>
+          <SearchContainer
+            searched={this.state.searched} 
+            title={this.state.omdbTitle}
+            poster={this.state.omdbPoster}
+          />
+        </div>
 
         <footer>
           <p>Ain't nobody got time for copyright</p>
