@@ -5,7 +5,7 @@ export default class SearchForm extends Component {
   render() {
     return(
       <div >
-        <input type="text"/>
+        <input type="text" placeholder="Movie Title"/>
         <button>Search</button>
       </div>
     )
