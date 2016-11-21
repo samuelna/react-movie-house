@@ -73,19 +73,22 @@ class App extends Component {
           handleInput={event => this.handleInput(event)} 
           handleClick={() => this.searchOmdb()}
         />
-        <div>
-          <MovieContainer 
-            getAllMovies={this.getAllMovies.bind(this)}
-            showing={this.state.allMovies} 
-          />
-        </div>
 
-        <div>
-          <SearchContainer
-            searched={this.state.searched} 
-            title={this.state.omdbTitle}
-            poster={this.state.omdbPoster}
-          />
+        <div className={style["wrapper"]}>
+          <div id={style["movie-containers"]}>
+            <MovieContainer 
+              getAllMovies={this.getAllMovies.bind(this)}
+              showing={this.state.allMovies} 
+            />
+          </div>
+
+          <div id={style["search-containers"]}>
+            <SearchContainer
+              searched={this.state.searched} 
+              title={this.state.omdbTitle}
+              poster={this.state.omdbPoster}
+            />
+          </div>
         </div>
 
         <footer>

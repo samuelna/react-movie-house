@@ -15,7 +15,7 @@ export default class SearchContainer extends Component {
         </div>
       )
     } else {
-      return (<div className={style["movie"]}></div>) 
+      return (<div></div>) 
     }
   }
 
