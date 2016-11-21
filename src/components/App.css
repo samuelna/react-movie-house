@@ -23,10 +23,12 @@ header h2 {
 
 footer {
   background-color: #393939;
-  padding: 20px;
   position: absolute;
+  right: 0;
   bottom: 0;
-  width: 97%;
+  left: 0;
+  padding: 1rem;
+  text-align: center;
 }
 
 footer p {
@@ -53,4 +55,10 @@ footer p {
   justify-content: center;
   flex-wrap: wrap;
   width: 30%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
