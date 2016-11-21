@@ -62,29 +62,35 @@ class App extends Component {
   }
   // save to db using omdbTitle and omdbPoster
   saveToDB() {
-    this.setState({
-      searched : false,
-    });
-    const payload = {
-      title  : this.state.omdbTitle,
-      poster : this.state.omdbPoster,
-    };
-    console.log('payload', payload)
-    fetch(`/api/movies`, {
-      headers : { 'Content-Type' : 'application/json' },
-      method  : 'POST',
-      body    : JSON.stringify(payload),
-    })
-    .then(r => r.json())
-    .then(() => {
-      // add to allMovies
-      const allMovies = this.state.allMovies.concat(payload);
-      this.setState({
-        allMovies,
-      });
-      console.log('checking after adding', this.state);
-    })
-    .catch(err => console.log('saveToDB error', err));
+    if (this.state.searched) {
+      const payload = {
+        title  : this.state.omdbTitle,
+        poster : this.state.omdbPoster,
+      };
+      fetch(`/api/movies`, {
+        headers : { 'Content-Type' : 'application/json' },
+        method  : 'POST',
+        body    : JSON.stringify(payload),
+      })
+      .then(r => r.json())
+      .then(() => {
+        console.log('searched ',this.state.searched);
+        if (this.state.searched) {
+          // add to allMovies
+          const allMovies = this.state.allMovies.concat(payload);
+          this.setState({
+            allMovies,
+          });
+          console.log('checking after adding', this.state);
+        }
+        this.setState({
+          searched : false,
+        });
+      })
+      .catch(err => console.log('saveToDB error', err));
+    } else {
+      console.log('Nothing to add');
+    }
   }
   
   render(){
