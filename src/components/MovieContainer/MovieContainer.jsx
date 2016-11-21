@@ -11,9 +11,11 @@ export default class MovieContainer extends Component {
   renderAllMovies() {
     return this.props.showing.map((movie, index) => 
       <Movie 
+        id={movie.movie_id}
         key={index}
         title={movie.title}
         poster={movie.poster} 
+        handleDelete={this.props.handleDelete}
       />
     );
   }

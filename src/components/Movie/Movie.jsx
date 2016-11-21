@@ -8,7 +8,7 @@ export default class Movie extends Component {
       <div className={style['movie-list-item']}>
         <h3>{this.props.title}</h3>
         <img src={this.props.poster} alt="Movie Poster"/>
-        <button id={style["delete-button"]}>Remove</button>
+        <button id={style["delete-button"]} onClick={() => this.props.handleDelete(this.props.id)} >Remove</button>
       </div>
     )
   }

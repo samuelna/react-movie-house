@@ -72,7 +72,6 @@ class App extends Component {
         method  : 'POST',
         body    : JSON.stringify(payload),
       })
-      .then(r => r.json())
       .then(() => {
         console.log('searched ',this.state.searched);
         if (this.state.searched) {
@@ -93,6 +92,18 @@ class App extends Component {
     }
   }
   
+  // remove from db
+  deleteFromDB(id) {
+    fetch(`/api/movies/${id}`, { method: 'DELETE' })
+    .then(() => {
+      const allMovies = this.state.allMovies.filter(movie => {
+        return movie.movie_id != id;
+      });
+      this.setState({ allMovies });
+    })
+    .catch(err => console.log('deleteFromDB error', err));
+  }
+
   render(){
     return (
       <div id="app-container">
@@ -111,7 +122,8 @@ class App extends Component {
           <div id={style["movie-containers"]}>
             <MovieContainer 
               getAllMovies={this.getAllMovies.bind(this)}
-              showing={this.state.allMovies} 
+              showing={this.state.allMovies}
+              handleDelete={this.deleteFromDB.bind(this)} 
             />
           </div>
 
