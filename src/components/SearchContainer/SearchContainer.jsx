@@ -9,7 +9,7 @@ export default class SearchContainer extends Component {
     // console.log('checkInputTitle', this.props);
     if (this.props.searched) {
       return (
-        <div className={style["movie"]}>
+        <div key="search-result" className={style["movie"]}>
           <h3>{this.props.title}</h3>
           <img src={this.props.poster} alt="Movie Poster"/>
         </div>

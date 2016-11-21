@@ -11,7 +11,7 @@ export default class SearchForm extends Component {
           onChange={this.props.handleInput}  />
 
         <button id={style["button"]} onClick={this.props.handleClick} >Search</button>
-        <button id={style["save"]} >Save It</button>
+        <button id={style["save"]} onClick={this.props.handleSave} >Save It</button>
       </div>
     )
   }

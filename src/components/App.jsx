@@ -28,7 +28,7 @@ class App extends Component {
       this.setState({
         allMovies : results,
       });
-      // console.log(this.state)
+      console.log('allMovies', this.state.allMovies)
     })
     .catch(err => console.log('getAllMovies frontend', err))
   }
@@ -60,6 +60,32 @@ class App extends Component {
       titleInput : e.target.value,
     });
   }
+  // save to db using omdbTitle and omdbPoster
+  saveToDB() {
+    this.setState({
+      searched : false,
+    });
+    const payload = {
+      title  : this.state.omdbTitle,
+      poster : this.state.omdbPoster,
+    };
+    console.log('payload', payload)
+    fetch(`/api/movies`, {
+      headers : { 'Content-Type' : 'application/json' },
+      method  : 'POST',
+      body    : JSON.stringify(payload),
+    })
+    .then(r => r.json())
+    .then(() => {
+      // add to allMovies
+      const allMovies = this.state.allMovies.concat(payload);
+      this.setState({
+        allMovies,
+      });
+      console.log('checking after adding', this.state);
+    })
+    .catch(err => console.log('saveToDB error', err));
+  }
   
   render(){
     return (
@@ -72,6 +98,7 @@ class App extends Component {
         <SearchForm
           handleInput={event => this.handleInput(event)} 
           handleClick={() => this.searchOmdb()}
+          handleSave={() => this.saveToDB()}
         />
 
         <div className={style["wrapper"]}>

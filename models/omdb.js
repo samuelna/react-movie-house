@@ -16,8 +16,8 @@ function getAllMovies(req, res, next) {
 function saveToDB(req, res, next) {
   // console.log('in saveToDB function');
   // console.log(req.body);
-  db.none(`INSERT INTO movies (title, imdbRating, runtime, poster)
-           VALUES ($/title/, $/imdbRating/, $/runtime/, $/poster/);`, req.body)
+  db.none(`INSERT INTO movies (title, poster)
+           VALUES ($/title/, $/poster/);`, req.body)
   .then(movies => {
     // movies is null
     res.results = movies;
