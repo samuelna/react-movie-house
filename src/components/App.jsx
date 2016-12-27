@@ -85,6 +85,7 @@ class App extends Component {
         this.setState({
           searched : false,
         });
+        getAllMovies();
       })
       .catch(err => console.log('saveToDB error', err));
     } else {
